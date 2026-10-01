@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Production RAG Architecture: Chunking, Hybrid Search & Reranking — ML Mastery.ai</title>
+  <meta name="description" content="End-to-end RAG architecture: semantic chunking, dense vector + BM25 sparse hybrid search, reciprocal rank fusion (RRF), cross-encoder reranking, and citation grounding.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script src="../../assets/js/theme.js"></script>
+  <script src="../../assets/js/tutorials.js"></script>
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/interactions.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../roadmap/index.html" class="nav-link">Roadmap</a></li>
+          <li><a href="../../projects/index.html" class="nav-link">Projects Lab</a></li>
+          <li><a href="../../reference/index.html" class="nav-link">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container tutorial-layout">
+    <aside class="tutorial-sidebar">
+      <div class="sidebar-nav-title">Track 11: RAG Systems</div>
+      <ul class="sidebar-links">
+        <li><a href="architecture-retrieval.html" class="sidebar-link active">Production RAG Architecture</a></li>
+      </ul>
+
+      <div class="sidebar-nav-title" style="margin-top: 1.5rem;">Track 13: AI Agents</div>
+      <ul class="sidebar-links">
+        <li><a href="../agents/architectures-tools.html" class="sidebar-link">Autonomous AI Agents</a></li>
+      </ul>
+    </aside>
+
+    <article class="tutorial-content" style="min-width: 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <span class="badge badge-track">Track 11: RAG Engineering</span>
+          <span class="badge badge-advanced">Advanced</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 0.5rem;"><i class="fa-regular fa-clock"></i> 22 min read</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary mark-complete-btn" data-tutorial-id="rag-architecture-retrieval">
+          <i class="fa-regular fa-circle"></i> Mark Complete
+        </button>
+      </div>
+
+      <h1>Production RAG Architecture: Chunking, Hybrid Search & Reranking</h1>
+      <p class="lead" style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        Naive RAG systems suffer from chunk boundary fragmentation and keyword precision loss. Production architectures utilize multi-stage retrieval pipelines combining dense embeddings, sparse lexical search, and cross-encoder reranking.
+      </p>
+
+      <h2>1. End-to-End RAG System Flow</h2>
+      <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin: 1.5rem 0;">
+        <pre class="mermaid">
+flowchart TD
+    UserQuery[User Query] --> DenseEnc[Bi-Encoder Dense Vector]
+    UserQuery --> SparseEnc[BM25 Lexical Tokens]
+
+    DenseEnc --> DenseSearch[(Vector DB Search K=50)]
+    SparseEnc --> SparseSearch[(BM25 Inverted Index K=50)]
+
+    DenseSearch --> RRF[Reciprocal Rank Fusion RRF]
+    SparseSearch --> RRF
+
+    RRF --> TopK[Top 30 Candidates]
+    TopK --> Reranker[Cross-Encoder Reranker]
+    Reranker --> Top5[Top 5 Grounded Passages]
+
+    Top5 --> LLMPrompt[LLM Generator]
+    LLMPrompt --> GroundedResponse[Grounded Answer + Citations]
+        </pre>
+      </div>
+
+      <h2>2. Reciprocal Rank Fusion (RRF) Algorithm</h2>
+      <p>
+        RRF combines rank lists from dense vector search and sparse keyword search without needing normalized scores:
+      </p>
+
+      <div class="code-wrapper">
+        <div class="code-header">
+          <span class="code-lang">Python RRF Implementation</span>
+          <button class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button>
+        </div>
+        <pre><code class="language-python">def reciprocal_rank_fusion(rank_lists, k=60):
+    rrf_scores = {}
+    for rank_list in rank_lists:
+        for rank, doc_id in enumerate(rank_list):
+            if doc_id not in rrf_scores:
+                rrf_scores[doc_id] = 0.0
+            rrf_scores[doc_id] += 1.0 / (k + rank + 1)
+
+    sorted_docs = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
+    return sorted_docs</code></pre>
+      </div>
+
+      <h2>3. Next Step</h2>
+      <a href="../agents/architectures-tools.html" class="btn btn-primary">Continue to Track 13: Autonomous AI Agents & Tool Calling &rarr;</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. RAG Engineering Track.
+    </div>
+  </footer>
+</body>
+</html>

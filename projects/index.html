@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical Projects Laboratory — ML Mastery.ai</title>
+  <meta name="description" content="Production-style AI/ML engineering project blueprints with architectures, dataset considerations, execution workflows, evaluation strategies, and deployment patterns.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/print.css">
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/tutorials.js"></script>
+  <script src="../assets/js/progress.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/interactions.js"></script>
+  <script src="../assets/js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../roadmap/index.html" class="nav-link">Roadmap</a></li>
+          <li><a href="index.html" class="nav-link active">Projects Lab</a></li>
+          <li><a href="../reference/index.html" class="nav-link">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="padding: 3rem 1.5rem;">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+      <span class="badge badge-track" style="margin-bottom: 0.75rem;"><i class="fa-solid fa-flask"></i> Applied Project Laboratory</span>
+      <h1 style="font-size: 2.5rem; font-weight: 800;">Real-World AI/ML Project Blueprints</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 0.5rem;">
+        Practical, production-grade project guides complete with architecture specifications, dataset handling, evaluation workflows, and failure modes.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem;">
+      <!-- Project 1 -->
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+          <span class="badge badge-beginner">Beginner</span>
+          <span class="badge badge-track">Data & ML</span>
+        </div>
+        <h3 class="card-title">01. End-to-End Customer Churn Predictor</h3>
+        <p class="card-description">
+          Build a tabular churn prediction pipeline with feature engineering, cost-sensitive threshold optimization, and model calibration.
+        </p>
+        <div class="callout callout-success" style="padding: 0.75rem; margin: 0.5rem 0; font-size: 0.85rem;">
+          <strong>Objective:</strong> Optimize Recall@90% Precision while handling severe class imbalance.
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+          <span class="badge badge-intermediate">Intermediate</span>
+          <span class="badge badge-track">NLP & Evaluation</span>
+        </div>
+        <h3 class="card-title">02. Enterprise Document Classifier</h3>
+        <p class="card-description">
+          Extract text from complex PDFs, construct TF-IDF/Embedding hybrid vectors, and serve multi-label classification endpoints with confidence bounds.
+        </p>
+        <div class="callout callout-success" style="padding: 0.75rem; margin: 0.5rem 0; font-size: 0.85rem;">
+          <strong>Objective:</strong> Achieve &gt;0.92 Macro-F1 across 45 unstructured document types.
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+          <span class="badge badge-advanced">Advanced</span>
+          <span class="badge badge-track">LLM & RAG</span>
+        </div>
+        <h3 class="card-title">03. Production Technical Support RAG System</h3>
+        <p class="card-description">
+          Ingest API documentation, split into hierarchical code/text chunks, perform dense/sparse hybrid search with cross-encoders, and evaluate ground truth with RAG Triad metrics.
+        </p>
+        <div class="callout callout-success" style="padding: 0.75rem; margin: 0.5rem 0; font-size: 0.85rem;">
+          <strong>Objective:</strong> Sub-500ms retrieval latency with citation verification and zero hallucinated endpoints.
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+          <span class="badge badge-advanced">Advanced</span>
+          <span class="badge badge-track">Agents</span>
+        </div>
+        <h3 class="card-title">04. Autonomous SQL Data Analyst Agent</h3>
+        <p class="card-description">
+          Design a tool-calling execution loop with database schema reflection, query generation, self-correction on syntax errors, and structured visualization generation.
+        </p>
+        <div class="callout callout-success" style="padding: 0.75rem; margin: 0.5rem 0; font-size: 0.85rem;">
+          <strong>Objective:</strong> Safely execute multi-step analytical queries with read-only guardrails.
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+          <span class="badge badge-advanced">Advanced</span>
+          <span class="badge badge-track">MLOps</span>
+        </div>
+        <h3 class="card-title">05. Automated Drift Detection & Retraining Pipeline</h3>
+        <p class="card-description">
+          Deploy an inference endpoint, record live prediction telemetry, calculate Kolmogorov-Smirnov statistical data drift metrics, and trigger automated shadow retraining.
+        </p>
+        <div class="callout callout-success" style="padding: 0.75rem; margin: 0.5rem 0; font-size: 0.85rem;">
+          <strong>Objective:</strong> Real-time drift detection and zero-downtime model swap via canary deployments.
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+          <span class="badge badge-expert">Expert</span>
+          <span class="badge badge-track">Security</span>
+        </div>
+        <h3 class="card-title">06. Multi-Layer Guardrail & Injection Firewall</h3>
+        <p class="card-description">
+          Construct a defense-in-depth security layer that analyzes incoming LLM prompts for indirect injection, canary token leakage, system prompt overriding, and PII masking.
+        </p>
+        <div class="callout callout-success" style="padding: 0.75rem; margin: 0.5rem 0; font-size: 0.85rem;">
+          <strong>Objective:</strong> Block 99%+ of adversarial injection attacks with &lt;15ms latency overhead.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. Practical AI/ML Engineering Projects.
+    </div>
+  </footer>
+</body>
+</html>
