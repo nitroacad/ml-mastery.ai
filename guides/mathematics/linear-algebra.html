@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Algebra & Matrix Operations for Machine Learning — ML Mastery.ai</title>
+  <meta name="description" content="Master scalars, vectors, matrices, tensors, matrix multiplication, projections, eigenvalues, and cosine similarity with NumPy implementation examples.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script src="../../assets/js/theme.js"></script>
+  <script src="../../assets/js/tutorials.js"></script>
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/interactions.js"></script>
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../roadmap/index.html" class="nav-link">Roadmap</a></li>
+          <li><a href="../../projects/index.html" class="nav-link">Projects Lab</a></li>
+          <li><a href="../../reference/index.html" class="nav-link">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container tutorial-layout">
+    <aside class="tutorial-sidebar">
+      <div class="sidebar-nav-title">Track 01: Mathematics</div>
+      <ul class="sidebar-links">
+        <li><a href="linear-algebra.html" class="sidebar-link active">Linear Algebra & Tensors</a></li>
+        <li><a href="calculus-optimization.html" class="sidebar-link">Calculus & Gradients</a></li>
+      </ul>
+
+      <div class="sidebar-nav-title" style="margin-top: 1.5rem;">Track 02 & 03: Data & EDA</div>
+      <ul class="sidebar-links">
+        <li><a href="../data/engineering-quality.html" class="sidebar-link">Data Engineering & Quality</a></li>
+      </ul>
+    </aside>
+
+    <article class="tutorial-content" style="min-width: 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <span class="badge badge-track">Track 01: Mathematics</span>
+          <span class="badge badge-intermediate">Intermediate</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 0.5rem;"><i class="fa-regular fa-clock"></i> 15 min read</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary mark-complete-btn" data-tutorial-id="math-linear-algebra">
+          <i class="fa-regular fa-circle"></i> Mark Complete
+        </button>
+      </div>
+
+      <h1>Linear Algebra & Matrix Operations for Machine Learning</h1>
+      <p class="lead" style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        Linear algebra is the mathematical language of high-dimensional state spaces. Every dataset, token embedding, image tensor, and model parameter matrix relies on linear transformations.
+      </p>
+
+      <h2>1. Tensors: Data Dimensions</h2>
+      <p>
+        In computational machine learning, tensors represent N-dimensional arrays:
+      </p>
+      <ul>
+        <li><strong>Scalar (0D Tensor):</strong> A single numerical value (e.g., loss value = 0.245).</li>
+        <li><strong>Vector (1D Tensor):</strong> Array of numbers representing a point in space or feature vector (e.g., word embedding of dimension 768).</li>
+        <li><strong>Matrix (2D Tensor):</strong> Table of numbers (e.g., batch of samples x feature dimensions).</li>
+        <li><strong>3D+ Tensor:</strong> Higher dimensions (e.g., [Batch Size, Sequence Length, Embedding Dim] in LLMs).</li>
+      </ul>
+
+      <h2>2. Dot Product & Cosine Similarity Mechanics</h2>
+      <p>
+        The dot product of two vectors $a$ and $b$ measures their directional alignment:
+      </p>
+
+      <div class="code-wrapper">
+        <div class="code-header">
+          <span class="code-lang">Python / NumPy Representation</span>
+          <button class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button>
+        </div>
+        <pre><code class="language-python">import numpy as np
+
+# Define two 4-dimensional vector embeddings
+a = np.array([0.5, 0.2, -0.8, 0.1])
+b = np.array([0.4, 0.3, -0.7, 0.2])
+
+# Compute Dot Product
+dot_product = np.dot(a, b)
+
+# Compute Cosine Similarity
+norm_a = np.linalg.norm(a)
+norm_b = np.linalg.norm(b)
+cosine_sim = dot_product / (norm_a * norm_b)
+
+print(f"Dot Product: {dot_product:.4f}")
+print(f"Cosine Similarity: {cosine_sim:.4f}")</code></pre>
+      </div>
+
+      <h2>3. Matrix Multiplication ($A \cdot B$)</h2>
+      <p>
+        In linear transformations, multiplying matrix $A$ (shape $M \times K$) by matrix $B$ (shape $K \times N$) produces matrix $C$ (shape $M \times N$). This is the core computational kernel in deep learning linear layers:
+      </p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title"><i class="fa-solid fa-lightbulb"></i> Key Shape Rule</div>
+        The inner dimensions must match: $(M \times \mathbf{K}) \cdot (\mathbf{K} \times N) = (M \times N)$. If inner dimensions do not match, matrix multiplication fails.
+      </div>
+
+      <h2>4. Knowledge Check</h2>
+      <div class="quiz-card">
+        <h3>Concept Check: Matrix Shapes</h3>
+        <p>If input tensor $X$ has shape <code>[32, 128]</code> (Batch Size = 32, Input Dim = 128) and weight matrix $W$ has shape <code>[128, 512]</code>, what is the output shape of $X \cdot W$?</p>
+
+        <button class="quiz-option" data-correct="false">[128, 128]</button>
+        <button class="quiz-option" data-correct="true">[32, 512]</button>
+        <button class="quiz-option" data-correct="false">[32, 128]</button>
+
+        <div class="quiz-explanation">
+          <strong>Correct!</strong> Inner dimension 128 matches; the resulting matrix shape takes outer dimensions <code>[32, 512]</code>.
+        </div>
+      </div>
+
+      <h2>5. Next Steps</h2>
+      <a href="calculus-optimization.html" class="btn btn-primary">Continue to Calculus & Optimization Mechanics &rarr;</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. Mathematics Track.
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Reference & Decision Tables — ML Mastery.ai</title>
+  <meta name="description" content="AI/ML system design comparison matrices, engineering trade-off decision tables, production checklists, and cheat sheets for machine learning practitioners.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/print.css">
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/tutorials.js"></script>
+  <script src="../assets/js/progress.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/interactions.js"></script>
+  <script src="../assets/js/app.js" defer></script>
+
+  <style>
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .ref-table th, .ref-table td {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .ref-table th {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    .ref-table tr:nth-child(even) {
+      background: var(--bg-surface);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../roadmap/index.html" class="nav-link">Roadmap</a></li>
+          <li><a href="../projects/index.html" class="nav-link">Projects Lab</a></li>
+          <li><a href="index.html" class="nav-link active">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="padding: 3rem 1.5rem;">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+      <span class="badge badge-track" style="margin-bottom: 0.75rem;"><i class="fa-solid fa-table"></i> Engineering Decision Matrix</span>
+      <h1 style="font-size: 2.5rem; font-weight: 800;">AI System Design Reference & Comparison Tables</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 0.5rem;">
+        Objective, non-promotional decision frameworks, performance trade-offs, and production checklists for system architects.
+      </p>
+    </div>
+
+    <!-- Section 1: Fine-Tuning vs RAG vs Long Context -->
+    <section class="card" style="margin-bottom: 2.5rem;">
+      <h2>1. LLM Customization Strategy: Fine-Tuning vs. RAG vs. Long-Context Prompting</h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">Choose the right architecture based on dynamic knowledge requirements, style control, and latency budget.</p>
+
+      <div style="overflow-x: auto;">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Fine-Tuning (SFT / LoRA)</th>
+              <th>Retrieval-Augmented Generation (RAG)</th>
+              <th>Long-Context In-Context Learning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Purpose</strong></td>
+              <td>Adapt model output style, tone, format, or specialized task domain mechanics.</td>
+              <td>Inject dynamic, rapidly changing external corporate knowledge.</td>
+              <td>Ad-hoc analysis of large, structured documents within a single pass.</td>
+            </tr>
+            <tr>
+              <td><strong>Dynamic Knowledge Updates</strong></td>
+              <td>Poor. Requires periodic re-training or continual weight updates.</td>
+              <td>Excellent. Update vector indices or documents instantaneously.</td>
+              <td>Immediate. Load new raw text into prompt context window.</td>
+            </tr>
+            <tr>
+              <td><strong>Hallucination Risk</strong></td>
+              <td>Medium to High. Weights memorize parametric facts imprecisely.</td>
+              <td>Low. Answers grounded directly in retrieved source passages.</td>
+              <td>Medium. Susceptible to "lost-in-the-middle" attention degradation.</td>
+            </tr>
+            <tr>
+              <td><strong>Latency & Cost</strong></td>
+              <td>Low serving latency (small prompt). High offline training cost.</td>
+              <td>Medium latency (vector lookup + rerank + model generation).</td>
+              <td>High serving cost & TTFT (Time-To-First-Token) scales quadratically/linearly.</td>
+            </tr>
+            <tr>
+              <td><strong>Auditability & Verification</strong></td>
+              <td>Opaque. Difficult to trace exact parametric reasoning source.</td>
+              <td>High. Direct attribution via metadata citations and document IDs.</td>
+              <td>High. Passages reside explicitly in input prompt payload.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 2: Vector Search vs Dense vs Hybrid -->
+    <section class="card" style="margin-bottom: 2.5rem;">
+      <h2>2. Retrieval Architectures: BM25 vs. Dense Vector vs. Hybrid Search</h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">Evaluating lexical precision vs semantic abstraction for search systems.</p>
+
+      <div style="overflow-x: auto;">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Lexical Search (BM25 / TF-IDF)</th>
+              <th>Dense Embeddings (Bi-Encoders)</th>
+              <th>Hybrid Search + Cross-Encoder Rerank</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Matching Mechanism</strong></td>
+              <td>Exact term match, term frequency, inverse document frequency.</td>
+              <td>Cosine similarity / inner product of dense latent vector representations.</td>
+              <td>Reciprocal Rank Fusion (RRF) of BM25 + Dense, followed by Cross-Encoder.</td>
+            </tr>
+            <tr>
+              <td><strong>Out-of-Vocabulary / Acronyms</strong></td>
+              <td>Handles exact acronyms (e.g. SKU codes, part IDs) effortlessly.</td>
+              <td>Fails on domain-specific non-dictionary identifiers.</td>
+              <td>Optimal. Lexical matches specific tokens; dense matches intent.</td>
+            </tr>
+            <tr>
+              <td><strong>Semantic Understanding</strong></td>
+              <td>Zero. Fails on synonyms ("automobile" vs "car").</td>
+              <td>High. Captures conceptual intent and cross-lingual meaning.</td>
+              <td>High. Combines keyword fidelity with conceptual abstraction.</td>
+            </tr>
+            <tr>
+              <td><strong>Computation Overhead</strong></td>
+              <td>Extremely fast, inverted index lookup (&lt;5ms).</td>
+              <td>Fast ANN vector search (&lt;20ms).</td>
+              <td>Slower (~50-150ms due to Cross-Encoder joint attention pass).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: Production AI Readiness Checklist -->
+    <section class="card">
+      <h2>3. Production AI System Readiness Checklist</h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">Essential engineering criteria prior to promoting an AI service to live traffic.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+        <div class="callout callout-warning">
+          <div class="callout-title"><i class="fa-solid fa-shield-halved"></i> 1. Security & Guardrails</div>
+          <ul style="font-size:0.875rem; padding-left:1.2rem; margin:0;">
+            <li>Input prompt injection sanitizer configured.</li>
+            <li>Output schema validation via JSON Mode or pydantic.</li>
+            <li>PII & sensitive credential masking active.</li>
+            <li>Tool calling authorization restricted to read-only scopes.</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-success">
+          <div class="callout-title"><i class="fa-solid fa-chart-line"></i> 2. Monitoring & Telemetry</div>
+          <ul style="font-size:0.875rem; padding-left:1.2rem; margin:0;">
+            <li>Latency tracking: P50, P95, P99 Time-To-First-Token (TTFT).</li>
+            <li>Token throughput & cost tracking per client/tenant.</li>
+            <li>Data drift tracking (Kolmogorov-Smirnov distance).</li>
+            <li>Faithfulness and answer relevance automated scoring.</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-danger">
+          <div class="callout-title"><i class="fa-solid fa-life-ring"></i> 3. Fallbacks & Reliability</div>
+          <ul style="font-size:0.875rem; padding-left:1.2rem; margin:0;">
+            <li>Model API rate limit retry with exponential backoff + jitter.</li>
+            <li>Secondary fallback LLM routing on timeout/failure.</li>
+            <li>Deterministic static response fallback on outage.</li>
+            <li>Circuit breaker pattern for downstream tool invocation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. Non-promotional engineering trade-off reference guide.
+    </div>
+  </footer>
+</body>
+</html>

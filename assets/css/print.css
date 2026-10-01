@@ -1,0 +1,60 @@
+/* ML Mastery.ai - Print Stylesheet */
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .btn,
+  .tutorial-sidebar,
+  .tutorial-toc,
+  .copy-btn,
+  .search-modal-backdrop,
+  .quiz-card {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .tutorial-layout {
+    display: block !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+
+  code, pre {
+    background-color: #f1f5f9 !important;
+    color: #000000 !important;
+    border: 1px solid #cbd5e1 !important;
+    page-break-inside: avoid;
+  }
+
+  .callout {
+    background: #f8fafc !important;
+    border-left: 4px solid #000000 !important;
+    color: #000000 !important;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    color: #000000 !important;
+  }
+}

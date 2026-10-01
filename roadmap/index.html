@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Learning Roadmap — ML Mastery.ai</title>
+  <meta name="description" content="An interactive engineering progression roadmap from AI/ML foundations through mathematics, data engineering, deep learning, LLM systems, RAG, agents, and production MLOps.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/print.css">
+
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/tutorials.js"></script>
+  <script src="../assets/js/progress.js"></script>
+  <script src="../assets/js/search.js"></script>
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/interactions.js"></script>
+  <script src="../assets/js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html" class="nav-link active">Roadmap</a></li>
+          <li><a href="../projects/index.html" class="nav-link">Projects Lab</a></li>
+          <li><a href="../reference/index.html" class="nav-link">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="padding: 3rem 1.5rem;">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">
+      <span class="badge badge-track" style="margin-bottom: 0.75rem;">Structured Curriculum Progression</span>
+      <h1 style="font-size: 2.5rem; font-weight: 800;">Production AI/ML Engineering Roadmap</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 0.5rem;">
+        Follow this structured path from mathematical primitives to production system architecture. Click any node to open the tutorial guide.
+      </p>
+    </div>
+
+    <!-- Roadmap Flow Visual -->
+    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+      <!-- Step 0 -->
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <span class="badge badge-beginner">Stage 00</span>
+          <span class="badge badge-track">Foundations</span>
+        </div>
+        <h3 class="card-title">00. Start Here & Core Definitions</h3>
+        <p class="card-description">Understand AI research vs engineering, modern AI roles, software architectural boundaries, and learning milestones.</p>
+        <div>
+          <a href="../guides/foundations/ai-ml-dl-eng.html" class="btn btn-sm btn-outline">Guide: AI/ML Engineering Defined &rarr;</a>
+          <a href="../guides/foundations/roadmap.html" class="btn btn-sm btn-outline" style="margin-left:0.5rem;">Guide: Complete Roadmap Breakdown &rarr;</a>
+        </div>
+      </div>
+
+      <div style="text-align:center; color:var(--primary); font-size:1.5rem;"><i class="fa-solid fa-arrow-down"></i></div>
+
+      <!-- Step 1 -->
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <span class="badge badge-intermediate">Stage 01</span>
+          <span class="badge badge-track">Mathematics</span>
+        </div>
+        <h3 class="card-title">01. Mathematics & Optimization Primitives</h3>
+        <p class="card-description">Linear algebra, tensor representations, matrix multiplication, partial derivatives, direction gradients, and computational graphs.</p>
+        <div>
+          <a href="../guides/mathematics/linear-algebra.html" class="btn btn-sm btn-outline">Guide: Linear Algebra & Matrix Operations &rarr;</a>
+          <a href="../guides/mathematics/calculus-optimization.html" class="btn btn-sm btn-outline" style="margin-left:0.5rem;">Guide: Calculus & Optimization Mechanics &rarr;</a>
+        </div>
+      </div>
+
+      <div style="text-align:center; color:var(--primary); font-size:1.5rem;"><i class="fa-solid fa-arrow-down"></i></div>
+
+      <!-- Step 2 -->
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <span class="badge badge-intermediate">Stage 02</span>
+          <span class="badge badge-track">Data & ML</span>
+        </div>
+        <h3 class="card-title">02. Data Engineering, Evaluation & Classical ML</h3>
+        <p class="card-description">Data preparation, feature engineering, preventing target leakage, model evaluation (precision/recall/ROC-AUC), and classical algorithms.</p>
+        <div>
+          <a href="../guides/data/engineering-quality.html" class="btn btn-sm btn-outline">Guide: Data Preparation & Quality &rarr;</a>
+          <a href="../guides/machine-learning/model-evaluation.html" class="btn btn-sm btn-outline" style="margin-left:0.5rem;">Guide: Model Evaluation & Benchmarking &rarr;</a>
+        </div>
+      </div>
+
+      <div style="text-align:center; color:var(--primary); font-size:1.5rem;"><i class="fa-solid fa-arrow-down"></i></div>
+
+      <!-- Step 3 -->
+      <div class="card" style="border-left: 4px solid var(--accent);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <span class="badge badge-intermediate">Stage 03</span>
+          <span class="badge badge-track">Deep Learning</span>
+        </div>
+        <h3 class="card-title">03. Deep Learning & Neural Network Foundations</h3>
+        <p class="card-description">Perceptrons, multi-layer networks, forward/backpropagation, loss landscapes, optimizers (Adam, SGD), and gradient stability.</p>
+        <div>
+          <a href="../guides/deep-learning/neural-networks.html" class="btn btn-sm btn-outline">Guide: Deep Neural Networks & Backpropagation &rarr;</a>
+        </div>
+      </div>
+
+      <div style="text-align:center; color:var(--accent); font-size:1.5rem;"><i class="fa-solid fa-arrow-down"></i></div>
+
+      <!-- Step 4 -->
+      <div class="card" style="border-left: 4px solid var(--accent);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <span class="badge badge-advanced">Stage 04</span>
+          <span class="badge badge-track">LLM & RAG</span>
+        </div>
+        <h3 class="card-title">04. LLM Engineering, RAG & Vector Systems</h3>
+        <p class="card-description">Transformers, tokenization, context window management, temperature/sampling, RAG chunking, vector search, and reranking.</p>
+        <div>
+          <a href="../guides/llm-engineering/architecture-inference.html" class="btn btn-sm btn-outline">Guide: LLM Architecture & Inference Mechanics &rarr;</a>
+          <a href="../guides/rag/architecture-retrieval.html" class="btn btn-sm btn-outline" style="margin-left:0.5rem;">Guide: Production RAG Architecture &rarr;</a>
+        </div>
+      </div>
+
+      <div style="text-align:center; color:var(--accent); font-size:1.5rem;"><i class="fa-solid fa-arrow-down"></i></div>
+
+      <!-- Step 5 -->
+      <div class="card" style="border-left: 4px solid var(--warning);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <span class="badge badge-advanced">Stage 05</span>
+          <span class="badge badge-track">Agents & MLOps</span>
+        </div>
+        <h3 class="card-title">05. Autonomous Agents, MLOps & Production Architecture</h3>
+        <p class="card-description">Tool calling execution loops, state graphs, model registries, drift detection, canary deployments, and threat modeling.</p>
+        <div>
+          <a href="../guides/agents/architectures-tools.html" class="btn btn-sm btn-outline">Guide: Autonomous AI Agents & Tool Calling &rarr;</a>
+          <a href="../guides/mlops/pipelines-deployment.html" class="btn btn-sm btn-outline" style="margin-left:0.5rem;">Guide: MLOps Pipelines & Deployment &rarr;</a>
+          <a href="../guides/security/prompt-injection-guardrails.html" class="btn btn-sm btn-outline" style="margin-left:0.5rem;">Guide: AI Security & Guardrails &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. Framework-free static tutorial platform.
+    </div>
+  </footer>
+</body>
+</html>

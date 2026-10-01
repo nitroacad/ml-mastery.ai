@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Evaluation: Offline vs Online Metrics & Benchmarking — ML Mastery.ai</title>
+  <meta name="description" content="Precision, Recall, ROC-AUC, PR-AUC, calibration, offline evaluation vs online A/B benchmarking, and why accuracy misleads in practice.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script src="../../assets/js/theme.js"></script>
+  <script src="../../assets/js/tutorials.js"></script>
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/interactions.js"></script>
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../roadmap/index.html" class="nav-link">Roadmap</a></li>
+          <li><a href="../../projects/index.html" class="nav-link">Projects Lab</a></li>
+          <li><a href="../../reference/index.html" class="nav-link">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container tutorial-layout">
+    <aside class="tutorial-sidebar">
+      <div class="sidebar-nav-title">Track 04 & 05: Evaluation</div>
+      <ul class="sidebar-links">
+        <li><a href="model-evaluation.html" class="sidebar-link active">Model Evaluation & Metrics</a></li>
+      </ul>
+
+      <div class="sidebar-nav-title" style="margin-top: 1.5rem;">Track 06: Deep Learning</div>
+      <ul class="sidebar-links">
+        <li><a href="../deep-learning/neural-networks.html" class="sidebar-link">Deep Neural Networks</a></li>
+      </ul>
+    </aside>
+
+    <article class="tutorial-content" style="min-width: 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <span class="badge badge-track">Track 05: Model Evaluation</span>
+          <span class="badge badge-intermediate">Intermediate</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 0.5rem;"><i class="fa-regular fa-clock"></i> 16 min read</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary mark-complete-btn" data-tutorial-id="ml-model-evaluation">
+          <i class="fa-regular fa-circle"></i> Mark Complete
+        </button>
+      </div>
+
+      <h1>Model Evaluation: Offline vs Online Metrics & Benchmarking</h1>
+      <p class="lead" style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        A model with 99% accuracy can be completely useless in production. Rigorous evaluation requires matching metric selection to real-world business objectives and class distributions.
+      </p>
+
+      <h2>1. Why Accuracy Misleads</h2>
+      <p>
+        In imbalanced scenarios (e.g. fraud detection where 99.9% of transactions are legitimate), a dummy classifier predicting "legitimate" for every input achieves 99.9% accuracy while detecting zero fraud.
+      </p>
+
+      <h2>2. Confusion Matrix & Core Metrics</h2>
+      <ul>
+        <li><strong>Precision:</strong> $\frac{TP}{TP + FP}$ — Out of all samples predicted positive, how many were actually positive?</li>
+        <li><strong>Recall (Sensitivity):</strong> $\frac{TP}{TP + FN}$ — Out of all actual positive samples, how many did the model catch?</li>
+        <li><strong>F1 Score:</strong> Harmonic mean of Precision and Recall: $2 \cdot \frac{P \cdot R}{P + R}$.</li>
+      </ul>
+
+      <h2>3. ROC-AUC vs. PR-AUC</h2>
+      <p>
+        When class distribution is heavily skewed (&lt;5% positive class), use <strong>Precision-Recall AUC (PR-AUC)</strong> instead of ROC-AUC. ROC-AUC uses True Positive Rate vs False Positive Rate, where a large negative class denominator suppresses False Positive Rate artificially.
+      </p>
+
+      <h2>4. Next Step</h2>
+      <a href="../deep-learning/neural-networks.html" class="btn btn-primary">Continue to Track 06: Deep Neural Networks & Backpropagation &rarr;</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. Model Evaluation Track.
+    </div>
+  </footer>
+</body>
+</html>

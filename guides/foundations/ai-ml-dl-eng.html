@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI, Machine Learning, Deep Learning & AI Engineering Defined — ML Mastery.ai</title>
+  <meta name="description" content="Understand the practical distinctions between AI Research, Data Science, Machine Learning Engineering, and modern AI Systems Engineering.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script src="../../assets/js/theme.js"></script>
+  <script src="../../assets/js/tutorials.js"></script>
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/interactions.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../roadmap/index.html" class="nav-link">Roadmap</a></li>
+          <li><a href="../../projects/index.html" class="nav-link">Projects Lab</a></li>
+          <li><a href="../../reference/index.html" class="nav-link">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container tutorial-layout">
+    <aside class="tutorial-sidebar">
+      <div class="sidebar-nav-title">Track 00: Foundations</div>
+      <ul class="sidebar-links">
+        <li><a href="ai-ml-dl-eng.html" class="sidebar-link active">AI vs ML vs DL vs AI Eng</a></li>
+        <li><a href="roadmap.html" class="sidebar-link">Production Learning Roadmap</a></li>
+      </ul>
+
+      <div class="sidebar-nav-title" style="margin-top: 1.5rem;">Track 01: Mathematics</div>
+      <ul class="sidebar-links">
+        <li><a href="../mathematics/linear-algebra.html" class="sidebar-link">Linear Algebra & Tensors</a></li>
+        <li><a href="../mathematics/calculus-optimization.html" class="sidebar-link">Calculus & Gradients</a></li>
+      </ul>
+    </aside>
+
+    <article class="tutorial-content" style="min-width: 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <span class="badge badge-track">Track 00: Start Here</span>
+          <span class="badge badge-beginner">Beginner</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 0.5rem;"><i class="fa-regular fa-clock"></i> 10 min read</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary mark-complete-btn" data-tutorial-id="foundations-ai-ml-dl-eng">
+          <i class="fa-regular fa-circle"></i> Mark Complete
+        </button>
+      </div>
+
+      <h1>AI, Machine Learning, Deep Learning, and AI Engineering Defined</h1>
+      <p class="lead" style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        In modern technical literature, terms like Artificial Intelligence, Machine Learning, Deep Learning, MLOps, and AI Engineering are frequently conflated. Understanding their precise boundaries is fundamental to building scalable, production-grade systems.
+      </p>
+
+      <h2>1. The Hierarchical Taxonomy</h2>
+      <p>
+        Conceptually, these domains form nested concentric subsets rather than disjoint fields:
+      </p>
+
+      <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin: 1.5rem 0;">
+        <pre class="mermaid">
+graph TD
+    subgraph AI[Artificial Intelligence: Rule-based & Statistical Systems]
+        subgraph ML[Machine Learning: Data-driven Parameter Learning]
+            subgraph DL[Deep Learning: Multi-layer Neural Networks]
+                LLM[Generative AI & LLMs]
+            end
+        end
+    end
+        </pre>
+      </div>
+
+      <p>
+        <strong>Artificial Intelligence (AI):</strong> The broadest discipline focused on creating computational systems capable of performing tasks that traditionally require human intelligence (e.g. decision trees, expert systems, rule engines, search heuristics, and statistical models).
+      </p>
+      <p>
+        <strong>Machine Learning (ML):</strong> A mathematical subfield of AI where algorithms learn statistical patterns directly from data to make predictions, without being explicitly programmed with hardcoded rules.
+      </p>
+      <p>
+        <strong>Deep Learning (DL):</strong> A subset of ML utilizing hierarchical multi-layer artificial neural networks (e.g. Transformers, CNNs, LSTMs) capable of learning intricate feature representations automatically from raw data.
+      </p>
+      <p>
+        <strong>AI Systems Engineering:</strong> The practical engineering discipline focused on integrating model representations into robust, highly available, secure, observable, and cost-effective production applications.
+      </p>
+
+      <h2>2. Role Comparisons: Research vs. Data Science vs. AI Engineering</h2>
+      <p>
+        The software industry distinguishes heavily between model creation and system construction:
+      </p>
+
+      <div class="code-wrapper">
+        <div class="code-header">
+          <span class="code-lang">System Responsibility Matrix</span>
+        </div>
+        <pre><code class="language-text">Role                   Primary Artifact             Focus Metrics
+----------------------------------------------------------------------------------
+AI Research Scientist  ArXiv Papers, New Loss Functions  Perplexity, SOTA Benchmarks
+Data Scientist         Jupyter Notebooks, Insights  Business KPIs, P-values
+ML Engineer            Trained Weights, Serving Pipelines Inference Latency, Drift
+AI Systems Engineer    End-to-End Scalable Platform TTFT, System Availability, Cost</code></pre>
+      </div>
+
+      <h2>3. The Engineering Mindset: From Models to Systems</h2>
+      <p>
+        A common pitfall in AI development is treating the model artifact as the entire system. In reality, as famous industry research highlights, ML code represents a tiny fraction of a production system:
+      </p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Production Reality</div>
+        Model training is only ~5% of the total effort. Production readiness requires robust data ingestion pipelines, feature stores, monitoring, load balancing, fallback strategies, guardrails, and automated rollback workflows.
+      </div>
+
+      <h2>4. Knowledge Check</h2>
+      <div class="quiz-card">
+        <h3>Concept Check: Architectural Responsibilities</h3>
+        <p>Which engineering responsibility belongs primarily to the <strong>AI Systems Engineer</strong> rather than the Research Scientist?</p>
+
+        <button class="quiz-option" data-correct="false">Deriving a novel mathematical backpropagation activation function.</button>
+        <button class="quiz-option" data-correct="true">Implementing rate limiting, fallback LLM routing, and sub-500ms streaming responses.</button>
+        <button class="quiz-option" data-correct="false">Proving convergence bounds for a convex loss function.</button>
+
+        <div class="quiz-explanation">
+          <strong>Correct!</strong> AI Systems Engineering focuses on operationalizing models, managing inference latency, streaming response protocols, rate limits, and fallback resilience.
+        </div>
+      </div>
+
+      <h2>5. Next Steps</h2>
+      <p>Now that you understand the structural landscape, continue to the next guide in this track:</p>
+      <a href="roadmap.html" class="btn btn-primary">Continue to Complete Learning Roadmap &rarr;</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. Track 00 Foundations.
+    </div>
+  </footer>
+</body>
+</html>

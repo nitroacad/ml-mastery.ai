@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Architecture, Context Windows & Inference Mechanics — ML Mastery.ai</title>
+  <meta name="description" content="Transformers, tokenization, context windows, KV cache, temperature/sampling mechanics, quantization (INT8/INT4), and inference throughput optimization.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script src="../../assets/js/theme.js"></script>
+  <script src="../../assets/js/tutorials.js"></script>
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/interactions.js"></script>
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../roadmap/index.html" class="nav-link">Roadmap</a></li>
+          <li><a href="../../projects/index.html" class="nav-link">Projects Lab</a></li>
+          <li><a href="../../reference/index.html" class="nav-link">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container tutorial-layout">
+    <aside class="tutorial-sidebar">
+      <div class="sidebar-nav-title">Track 09: LLM Engineering</div>
+      <ul class="sidebar-links">
+        <li><a href="architecture-inference.html" class="sidebar-link active">LLM Architecture & Inference</a></li>
+      </ul>
+
+      <div class="sidebar-nav-title" style="margin-top: 1.5rem;">Track 11: RAG Engineering</div>
+      <ul class="sidebar-links">
+        <li><a href="../rag/architecture-retrieval.html" class="sidebar-link">Production RAG Architecture</a></li>
+      </ul>
+    </aside>
+
+    <article class="tutorial-content" style="min-width: 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <span class="badge badge-track">Track 09: LLM Engineering</span>
+          <span class="badge badge-advanced">Advanced</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 0.5rem;"><i class="fa-regular fa-clock"></i> 20 min read</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary mark-complete-btn" data-tutorial-id="llm-architecture-inference">
+          <i class="fa-regular fa-circle"></i> Mark Complete
+        </button>
+      </div>
+
+      <h1>LLM Architecture, Context Windows & Inference Mechanics</h1>
+      <p class="lead" style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        Large Language Models (LLMs) rely on decoder-only Transformer architectures. Optimizing inference latency, memory footprint, and token generation costs requires understanding KV caching, attention complexity, and quantization.
+      </p>
+
+      <h2>1. Self-Attention Mechanics</h2>
+      <p>
+        Attention maps queries $Q$, keys $K$, and values $V$ across token sequence lengths:
+      </p>
+      <div class="code-wrapper">
+        <div class="code-header">
+          <span class="code-lang">Scaled Dot-Product Attention Equation</span>
+        </div>
+        <pre><code class="language-text">Attention(Q, K, V) = softmax( (Q * K^T) / sqrt(d_k) ) * V</code></pre>
+      </div>
+
+      <h2>2. Key-Value (KV) Cache Memory</h2>
+      <p>
+        During autoregressive generation, past key and value tensors are cached in GPU memory to avoid recomputing attention states for previously generated tokens.
+      </p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title"><i class="fa-solid fa-server"></i> VRAM Equation for KV Cache</div>
+        KV Cache Size = 2 * n_layers * n_heads * d_head * seq_len * batch_size * bytes_per_element.
+      </div>
+
+      <h2>3. Next Step</h2>
+      <a href="../rag/architecture-retrieval.html" class="btn btn-primary">Continue to Track 11: Production RAG Architecture &rarr;</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. LLM Engineering Track.
+    </div>
+  </footer>
+</body>
+</html>

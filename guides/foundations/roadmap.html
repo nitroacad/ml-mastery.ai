@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Production AI/ML Engineer Learning Roadmap — ML Mastery.ai</title>
+  <meta name="description" content="A structured, four-phase roadmap for mastering AI/ML engineering from mathematical primitives through LLMs, RAG, and MLOps.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script src="../../assets/js/theme.js"></script>
+  <script src="../../assets/js/tutorials.js"></script>
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/interactions.js"></script>
+  <script src="../../assets/js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="site-logo">
+        <i class="fa-solid fa-microchip"></i>
+        <span>ML Mastery<span style="color:var(--primary)">.ai</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../roadmap/index.html" class="nav-link active">Roadmap</a></li>
+          <li><a href="../../projects/index.html" class="nav-link">Projects Lab</a></li>
+          <li><a href="../../reference/index.html" class="nav-link">Reference & Cheat Sheets</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon open-search-trigger" title="Search Tutorials" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button type="button" class="btn-icon theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button type="button" class="btn-icon mobile-menu-toggle" aria-label="Open navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container tutorial-layout">
+    <aside class="tutorial-sidebar">
+      <div class="sidebar-nav-title">Track 00: Foundations</div>
+      <ul class="sidebar-links">
+        <li><a href="ai-ml-dl-eng.html" class="sidebar-link">AI vs ML vs DL vs AI Eng</a></li>
+        <li><a href="roadmap.html" class="sidebar-link active">Production Learning Roadmap</a></li>
+      </ul>
+
+      <div class="sidebar-nav-title" style="margin-top: 1.5rem;">Track 01: Mathematics</div>
+      <ul class="sidebar-links">
+        <li><a href="../mathematics/linear-algebra.html" class="sidebar-link">Linear Algebra & Tensors</a></li>
+        <li><a href="../mathematics/calculus-optimization.html" class="sidebar-link">Calculus & Gradients</a></li>
+      </ul>
+    </aside>
+
+    <article class="tutorial-content" style="min-width: 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <span class="badge badge-track">Track 00: Start Here</span>
+          <span class="badge badge-beginner">Beginner</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); margin-left: 0.5rem;"><i class="fa-regular fa-clock"></i> 12 min read</span>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary mark-complete-btn" data-tutorial-id="foundations-roadmap">
+          <i class="fa-regular fa-circle"></i> Mark Complete
+        </button>
+      </div>
+
+      <h1>The Production AI/ML Engineer Learning Roadmap</h1>
+      <p class="lead" style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        Transitioning from prototype scripts to reliable production AI applications requires structured mastery across math, data pipelines, model mechanics, serving infrastructure, and observability.
+      </p>
+
+      <h2>Phase 1: Mathematical & Data Foundations</h2>
+      <p>
+        Before attempting neural network tuning or model fine-tuning, master the mathematical primitives:
+      </p>
+      <ul>
+        <li><strong>Linear Algebra:</strong> Vectors, matrices, dot products, matrix multiplication, projections, tensor operations, cosine similarity.</li>
+        <li><strong>Calculus:</strong> Derivatives, gradients, directional derivatives, partial derivatives, computational graphs, chain rule.</li>
+        <li><strong>Data Engineering:</strong> Standardized data cleaning, feature scaling, preventing target leakage, handling class imbalance.</li>
+      </ul>
+
+      <h2>Phase 2: Deep Learning & Classical ML</h2>
+      <ul>
+        <li><strong>Classical ML:</strong> Decision trees, random forests, gradient boosting (XGBoost/LightGBM), precision-recall trade-offs.</li>
+        <li><strong>Neural Network Mechanics:</strong> Multi-layer perceptrons, activation functions, forward pass, backpropagation, SGD, Adam optimizer.</li>
+        <li><strong>Framework Mastery:</strong> Tensor operations in PyTorch, custom dataset loaders, loss function implementations.</li>
+      </ul>
+
+      <h2>Phase 3: Modern LLM & RAG Engineering</h2>
+      <ul>
+        <li><strong>Transformers:</strong> Self-attention mechanics, multi-head attention, positional encoding, context window management.</li>
+        <li><strong>Inference & Sampling:</strong> Tokenization, KV caching, temperature, top-p, top-k, structured JSON generation.</li>
+        <li><strong>Production RAG:</strong> Chunking strategies, dense vector indices, hybrid search (BM25 + Dense), cross-encoder reranking.</li>
+      </ul>
+
+      <h2>Phase 4: Autonomous Agents, MLOps & Guardrails</h2>
+      <ul>
+        <li><strong>Autonomous AI Agents:</strong> Tool calling, ReAct loops, state graph execution, memory retention, retry logic.</li>
+        <li><strong>MLOps & Infrastructure:</strong> Model registries, canary releases, Kolmogorov-Smirnov data drift monitoring, sub-second serving.</li>
+        <li><strong>Security:</strong> Direct and indirect prompt injection mitigation, canary tokens, output filtering firewalls.</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <div class="callout-title"><i class="fa-solid fa-flag-checkered"></i> Milestone Goal</div>
+        By following this roadmap, you will transition from writing localized code snippets to architecting end-to-end resilient AI applications.
+      </div>
+
+      <h2>Next Step</h2>
+      <p>Begin Stage 01 of your journey with mathematical foundations:</p>
+      <a href="../mathematics/linear-algebra.html" class="btn btn-primary">Start Track 01: Mathematics for ML &rarr;</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      &copy; ML Mastery.ai. Roadmap Guide.
+    </div>
+  </footer>
+</body>
+</html>
